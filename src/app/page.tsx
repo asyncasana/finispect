@@ -1,103 +1,188 @@
-import Image from "next/image";
+import Link from "next/link";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-white text-gray-900 min-h-screen flex flex-col">
+      {/* Header */}
+      <Header />
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center min-h-[60vh] px-4 bg-gradient-to-b from-blue-50 to-white text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-blue-900">
+          Finispect - Snagging Inspections for New Builds
+        </h1>
+        <p className="text-lg md:text-2xl mb-6 text-gray-700 max-w-2xl">
+          Protect your investment with a professional, independent inspection
+        </p>
+        <a
+          href="#contact"
+          className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full shadow transition mb-8"
+        >
+          Request a Quote
+        </a>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* About Section */}
+      <section className="max-w-3xl mx-auto px-4 py-12" id="about">
+        <h2 className="text-2xl font-bold text-blue-800 mb-4">About</h2>
+        <p className="text-gray-700 leading-relaxed">
+          I'm <span className="font-semibold">Danylo Boyev</span>, founder of
+          Finispect – an independent inspection service focused on delivering
+          professional, defect-led snagging and quality assurance for new homes.
+          <br />
+          <br />
+          With over a decade of experience in the construction industry, I've
+          worked as a Clerk of Works and Quality Assurance Lead on some of
+          London's most high-profile developments, including Kensington Olympia,
+          Whiteley London, and Greenford Quay.
+          <br />
+          <br />
+          My background spans both residential and commercial projects – from
+          high-rise towers to luxury hotels – giving me a sharp understanding of
+          what quality looks like on-site, and what developers are expected to
+          deliver.
+          <br />
+          <br />
+          At Finispect, I apply that same standard to private homebuyers. Every
+          inspection is approached with the same rigour, clarity, and
+          independence – so whether you're buying your first flat or handing
+          over an entire block, you're protected by expertise that developers
+          take seriously.
+        </p>
+      </section>
+
+      {/* What's Included */}
+      <section className="bg-blue-50 py-12 px-4" id="included">
+        <h2 className="text-2xl font-bold text-blue-800 mb-4">
+          What's Included
+        </h2>
+        <ul className="list-disc list-inside text-gray-700 space-y-2 max-w-2xl mx-auto">
+          <li>Full walk-through of your property</li>
+          <li>
+            Check of doors, windows, walls, ceilings, floors, skirtings, stairs
+          </li>
+          <li>Visual MEP (plumbing, heating, electrics) inspection</li>
+          <li>Professional, photo-based PDF snag list</li>
+          <li>Optional re-inspection after snags are fixed</li>
+          <li>Typical snag counts range from 30 to 90+ defects per home*</li>
+        </ul>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="max-w-3xl mx-auto px-4 py-12" id="why">
+        <h2 className="text-2xl font-bold text-blue-800 mb-4">Why Choose Us</h2>
+        <ul className="list-disc list-inside text-gray-700 space-y-2">
+          <li>Experienced QA Lead on major projects</li>
+          <li>Clear, photo-based snagging reports</li>
+          <li>100% independent – I work for the buyer</li>
+          <li>Report turnaround in 24-48 hours</li>
+        </ul>
+      </section>
+
+      {/* Pricing */}
+      <section className="bg-blue-50 py-12 px-4" id="pricing">
+        <h2 className="text-2xl font-bold text-blue-800 mb-4">
+          Pricing – Premium Snagging Inspections
+        </h2>
+        <div className="max-w-2xl mx-auto">
+          <ul className="text-gray-700 space-y-1">
+            <li>
+              1-Bed Flat – from <span className="font-semibold">£295</span>
+            </li>
+            <li>
+              2-Bed Flat – from <span className="font-semibold">£345</span>
+            </li>
+            <li>
+              3-Bed Flat – from <span className="font-semibold">£395</span>
+            </li>
+            <li>
+              House (up to 4 bedrooms) – from{" "}
+              <span className="font-semibold">£475</span>
+            </li>
+            <li>
+              Larger / high-spec homes –{" "}
+              <span className="font-semibold">Contact for Quote</span>
+            </li>
+          </ul>
+          <div className="mt-6">
+            <div className="font-semibold mb-2">Optional Extras:</div>
+            <ul className="list-disc list-inside text-gray-700 space-y-1">
+              <li>Re-inspection visit – £75</li>
+              <li>24-hour report delivery – £50</li>
+              <li>Same-day slot (if available) – £100</li>
+              <li>
+                Discounts available for multiple properties or investor
+                portfolios. Contact me for a tailored quote.*
+              </li>
+            </ul>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Contact Section */}
+      <section className="max-w-2xl mx-auto px-4 py-12" id="contact">
+        <h2 className="text-2xl font-bold text-blue-800 mb-4">Contact</h2>
+        <div className="mb-4 text-gray-700">
+          <div>
+            Email:{" "}
+            <a
+              href="mailto:hello@finispect.co.uk"
+              className="text-blue-700 underline"
+            >
+              hello@finispect.co.uk
+            </a>
+          </div>
+          <div>
+            Phone/WhatsApp:{" "}
+            <a href="tel:07XXXXXXXXX" className="text-blue-700 underline">
+              07XXX XXXXXX
+            </a>
+          </div>
+        </div>
+        <form className="bg-white rounded-lg shadow p-6 flex flex-col gap-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Name</label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Email</label>
+            <input
+              type="email"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Property Type
+            </label>
+            <input
+              type="text"
+              className="w-full border border-gray-300 rounded px-3 py-2"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Message</label>
+            <textarea
+              className="w-full border border-gray-300 rounded px-3 py-2"
+              rows={4}
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded transition"
+          >
+            Send
+          </button>
+        </form>
+      </section>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
