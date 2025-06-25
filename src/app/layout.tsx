@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "Finispect",
     images: [
       {
-        url: "https://finispect.co.uk/og-image.jpg?v=2",
+        url: "https://finispect.vercel.app/og-image.jpg?v=2",
         width: 1200,
         height: 630,
         alt: "Finispect - New Build Snagging Inspections",
