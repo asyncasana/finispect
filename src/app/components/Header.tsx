@@ -11,7 +11,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="space-x-6 hidden md:block">
           <a href="#about" className="text-gray-700 hover:text-blue-700 font-medium">About</a>
-          <a href="#included" className="text-gray-700 hover:text-blue-700 font-medium">What's Included</a>
+          <a href="#included" className="text-gray-700 hover:text-blue-700 font-medium">What&apos;s Included</a>
           <a href="#pricing" className="text-gray-700 hover:text-blue-700 font-medium">Pricing</a>
           <a href="#contact" className="text-gray-700 hover:text-blue-700 font-medium">Contact</a>
         </nav>

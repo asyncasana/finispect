@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
@@ -27,14 +26,14 @@ export default function Home() {
       <section className="max-w-3xl mx-auto px-4 py-12" id="about">
         <h2 className="text-2xl font-bold text-blue-800 mb-4">About</h2>
         <p className="text-gray-700 leading-relaxed">
-          I'm <span className="font-semibold">Danylo Boyev</span>, founder of
+          I&apos;m <span className="font-semibold">Danylo Boyev</span>, founder of
           Finispect – an independent inspection service focused on delivering
           professional, defect-led snagging and quality assurance for new homes.
           <br />
           <br />
-          With over a decade of experience in the construction industry, I've
+          With over a decade of experience in the construction industry, I&apos;ve
           worked as a Clerk of Works and Quality Assurance Lead on some of
-          London's most high-profile developments, including Kensington Olympia,
+          London&apos;s most high-profile developments, including Kensington Olympia,
           Whiteley London, and Greenford Quay.
           <br />
           <br />
@@ -46,8 +45,8 @@ export default function Home() {
           <br />
           At Finispect, I apply that same standard to private homebuyers. Every
           inspection is approached with the same rigour, clarity, and
-          independence – so whether you're buying your first flat or handing
-          over an entire block, you're protected by expertise that developers
+          independence – so whether you&apos;re buying your first flat or handing
+          over an entire block, you&apos;re protected by expertise that developers
           take seriously.
         </p>
       </section>
@@ -55,7 +54,7 @@ export default function Home() {
       {/* What's Included */}
       <section className="bg-blue-50 py-12 px-4" id="included">
         <h2 className="text-2xl font-bold text-blue-800 mb-4">
-          What's Included
+          What&apos;s Included
         </h2>
         <ul className="list-disc list-inside text-gray-700 space-y-2 max-w-2xl mx-auto">
           <li>Full walk-through of your property</li>
