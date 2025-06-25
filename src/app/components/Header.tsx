@@ -38,7 +38,7 @@ export default function Header() {
       {open && (
         <nav className="md:hidden bg-white border-t shadow px-4 py-2 space-y-2">
           <a href="#about" className="block text-gray-700 hover:text-blue-700 font-medium" onClick={() => setOpen(false)}>About</a>
-          <a href="#included" className="block text-gray-700 hover:text-blue-700 font-medium" onClick={() => setOpen(false)}>What's Included</a>
+          <a href="#included" className="block text-gray-700 hover:text-blue-700 font-medium" onClick={() => setOpen(false)}>What&apos;s Included</a>
           <a href="#pricing" className="block text-gray-700 hover:text-blue-700 font-medium" onClick={() => setOpen(false)}>Pricing</a>
           <a href="#contact" className="block text-gray-700 hover:text-blue-700 font-medium" onClick={() => setOpen(false)}>Contact</a>
         </nav>
