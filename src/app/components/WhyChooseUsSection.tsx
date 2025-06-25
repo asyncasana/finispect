@@ -18,13 +18,13 @@ export default function WhyChooseUsSection() {
           Why Choose Us
         </h2>
         <ul className="space-y-3 max-w-md mx-auto">
-  {reasons.map((reason, idx) => (
-    <li key={idx} className="flex items-center gap-3">
-      <CheckCircleIcon className="w-6 h-6 text-blue-400 flex-shrink-0" />
-      <span className="text-gray-700">{reason}</span>
-    </li>
-  ))}
-</ul>
+          {reasons.map((reason, idx) => (
+            <li key={idx} className="flex items-center gap-3">
+              <CheckCircleIcon className="w-6 h-6 text-blue-400 flex-shrink-0" />
+              <span className="text-gray-700">{reason}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

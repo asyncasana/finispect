@@ -25,7 +25,7 @@ export default function WhatsIncludedSection() {
           <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center md:text-left">
             What&apos;s Included
           </h2>
-          <ul className="space-y-3 max-w-md w-full">
+          <ul className="space-y-3 max-w-md w-full px-8">
             {items.map((item, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <CheckCircleIcon className="w-6 h-6 text-blue-400 flex-shrink-0" />

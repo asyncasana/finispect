@@ -4,8 +4,10 @@ export default function HeroSection() {
   return (
     <section className="relative flex items-center justify-center min-h-[60vh] px-4 bg-gradient-to-b from-blue-50 to-white text-center overflow-hidden">
       <Image
-        src="/hero.jpg"
+        src="/hero.webp"
         alt="Finispect Hero"
+        fill
+        priority
         className="absolute inset-0 w-full h-full object-cover opacity-30"
         style={{ zIndex: 0 }}
       />
