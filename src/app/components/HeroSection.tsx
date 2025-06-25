@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section className="relative flex items-center justify-center min-h-[60vh] px-4 bg-gradient-to-b from-blue-50 to-white text-center overflow-hidden">
-      <img
+      <Image
         src="/hero.jpg"
         alt="Finispect Hero"
         className="absolute inset-0 w-full h-full object-cover opacity-30"
