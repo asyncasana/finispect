@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -8,7 +9,7 @@ export default function Header() {
   return (
     <header className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.jpg"
             alt="Finispect Logo"
@@ -17,7 +18,7 @@ export default function Header() {
             className="h-18 w-auto"
             priority
           />
-        </a>
+        </Link>
         {/* Desktop Nav */}
         <nav className="space-x-6 hidden md:block">
           <a
