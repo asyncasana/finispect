@@ -28,7 +28,11 @@ export default function ContactSection() {
         Contact
       </h2>
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
-        <p className="text-center text-lg text-gray-700 mb-8">
+        <p className="text-center text-lg text-gray-700 mb-6">
+          For a quick quote or to discuss your inspection, please fill out the
+          form below. We aim to respond within 24 hours.
+        </p>
+        {/* <p className="text-center text-lg text-gray-700 mb-8">
           Email{" "}
           <a
             href="mailto:hello@finispect.co.uk"
@@ -41,7 +45,7 @@ export default function ContactSection() {
             07XXX XXXXXX
           </a>{" "}
           for a quick quote or to discuss your inspection.
-        </p>
+        </p> */}
       </div>
       <form className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl bg-white rounded-lg shadow p-6 flex flex-col gap-4 mx-auto">
         <div>

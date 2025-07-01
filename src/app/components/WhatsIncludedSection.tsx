@@ -14,7 +14,7 @@ export default function WhatsIncludedSection() {
   ];
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-white" id="included">
       <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-center">
         {/* Icon Column */}
         <div className="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0">

@@ -2,7 +2,7 @@ import { UserCircleIcon } from "@heroicons/react/24/outline";
 
 export default function AboutSection() {
   return (
-    <section className="py-12 px-4 flex flex-col md:flex-row items-center justify-center">
+    <section className="py-12 px-4 flex flex-col md:flex-row items-center justify-center" id="about">
       <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
           <UserCircleIcon className="w-32 h-32 text-blue-400" />
