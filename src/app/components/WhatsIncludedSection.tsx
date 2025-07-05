@@ -17,17 +17,28 @@ export default function WhatsIncludedSection() {
     <section className="py-12 bg-white" id="included">
       <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-center">
         {/* Icon Column */}
-        <div className="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0">
+        <div
+          className="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0"
+          data-aos="fade-left"
+        >
           <ClipboardDocumentCheckIcon className="w-32 h-32 text-blue-400 mb-8" />
         </div>
         {/* Text/List Column */}
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-center justify-center">
+        <div
+          className="w-full md:w-1/2 flex flex-col items-center md:items-center justify-center"
+          data-aos="fade-right"
+        >
           <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center md:text-left">
             What&apos;s Included
           </h2>
           <ul className="space-y-3 max-w-md w-full px-8">
             {items.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3">
+              <li
+                key={idx}
+                className="flex items-start gap-3"
+                data-aos="fade-up"
+                data-aos-delay={idx * 100}
+              >
                 <CheckCircleIcon className="w-6 h-6 text-blue-400 flex-shrink-0" />
                 <span className="text-gray-700 flex-1 min-w-0">{item}</span>
               </li>

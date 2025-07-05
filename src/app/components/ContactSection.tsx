@@ -24,10 +24,17 @@ export default function ContactSection() {
         </svg>
       </div>
       <div className="absolute inset-0 bg-white/40 pointer-events-none" />
-      <h2 className="relative z-10 text-3xl font-bold text-blue-800 mb-6 text-center">
+      <h2
+        className="relative z-10 text-3xl font-bold text-blue-800 mb-6 text-center"
+        data-aos="fade-up"
+      >
         Contact
       </h2>
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+      <div
+        className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 mb-8"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <p className="text-center text-lg text-gray-700 mb-6">
           For a quick quote or to discuss your inspection, please fill out the
           form below. We aim to respond within 24 hours.
@@ -47,7 +54,11 @@ export default function ContactSection() {
           for a quick quote or to discuss your inspection.
         </p> */}
       </div>
-      <form className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl bg-white rounded-lg shadow p-6 flex flex-col gap-4 mx-auto">
+      <form
+        className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl bg-white rounded-lg shadow p-6 flex flex-col gap-4 mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <div>
           <label className="block text-sm font-medium mb-1">Name</label>
           <input

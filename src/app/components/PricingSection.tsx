@@ -4,10 +4,17 @@ export default function PricingSection() {
   return (
     <section className="bg-[#f5fafe] py-12 px-4 relative" id="pricing">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-2xl font-bold text-blue-800 mb-8 text-center relative z-10">
+        <h2
+          className="text-2xl font-bold text-blue-800 mb-8 text-center relative z-10"
+          data-aos="fade-up"
+        >
           Pricing: Premium Snagging Inspections
         </h2>
-        <ul className="max-w-xl mx-auto divide-y divide-gray-200 bg-white rounded-lg shadow relative z-10">
+        <ul
+          className="max-w-xl mx-auto divide-y divide-gray-200 bg-white rounded-lg shadow relative z-10"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <li className="flex justify-between px-6 py-4">
             <span>1-Bed Flat</span>
             <span className="font-semibold text-blue-800">from £295</span>
@@ -31,7 +38,11 @@ export default function PricingSection() {
             </span>
           </li>
         </ul>
-        <div className="max-w-2xl mx-auto mt-8 relative z-10">
+        <div
+          className="max-w-2xl mx-auto mt-8 relative z-10"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="bg-blue-100 rounded-lg p-6 shadow flex flex-col gap-2">
             <div className="font-semibold text-blue-800 mb-2 text-lg">
               Optional Extras
