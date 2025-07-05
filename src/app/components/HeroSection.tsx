@@ -8,8 +8,8 @@ export default function HeroSection() {
         alt="Finispect Hero"
         fill
         priority
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-        style={{ zIndex: 0 }}
+        className="absolute inset-0 object-cover opacity-30"
+        style={{ zIndex: 0, width: '100%', height: '100%' }}
       />
       <div className="relative z-10 flex flex-col items-center justify-center w-full">
         <h1

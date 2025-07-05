@@ -72,7 +72,7 @@ export default function Header() {
       </div>
       {/* Mobile Nav */}
       {open && (
-        <nav className="md:hidden bg-white shadow px-4 py-2 space-y-2">
+        <nav className="md:hidden bg-white shadow px-4 py-2 space-y-2 w-full">
           <a
             href="#about"
             className="block text-gray-700 hover:text-blue-700 font-medium"
