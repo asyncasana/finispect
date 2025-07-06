@@ -1,4 +1,52 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    propertyType: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          propertyType: formData.propertyType,
+        }),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", propertyType: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -36,26 +84,23 @@ export default function ContactSection() {
         data-aos="fade-up"
         data-aos-delay="100"
       >
-        <p className="text-center text-lg text-gray-700 mb-6">
-          For a quick quote or to discuss your inspection, please fill out the
-          form below. We aim to respond within 24 hours.
-        </p>
-        {/* <p className="text-center text-lg text-gray-700 mb-8">
-          Email{" "}
+        <p className="text-center text-lg text-gray-700 mb-8">
+          Email us on{" "}
           <a
             href="mailto:hello@finispect.co.uk"
             className="text-blue-700 underline"
           >
             hello@finispect.co.uk
           </a>{" "}
-          or WhatsApp{" "}
+          {/* or WhatsApp{" "}
           <a href="tel:07XXXXXXXXX" className="text-blue-700 underline">
             07XXX XXXXXX
-          </a>{" "}
+          </a>{" "} */}
           for a quick quote or to discuss your inspection.
-        </p> */}
+        </p>
       </div>
       <form
+        onSubmit={handleSubmit}
         className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl bg-white rounded-lg shadow p-6 flex flex-col gap-4 mx-auto"
         data-aos="fade-up"
         data-aos-delay="200"
@@ -63,6 +108,9 @@ export default function ContactSection() {
         <div>
           <label className="block text-sm font-medium mb-1">Name</label>
           <input
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             type="text"
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
@@ -71,6 +119,9 @@ export default function ContactSection() {
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             type="email"
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
@@ -81,6 +132,9 @@ export default function ContactSection() {
             Property Type
           </label>
           <input
+            name="propertyType"
+            value={formData.propertyType}
+            onChange={handleChange}
             type="text"
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
@@ -88,6 +142,9 @@ export default function ContactSection() {
         <div>
           <label className="block text-sm font-medium mb-1">Message</label>
           <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             rows={4}
           />
@@ -98,6 +155,10 @@ export default function ContactSection() {
         >
           Send
         </button>
+        {status === "sent" && <p className="text-green-600">Message sent!</p>}
+        {status === "error" && (
+          <p className="text-red-600">Something went wrong.</p>
+        )}
       </form>
     </section>
   );
