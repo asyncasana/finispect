@@ -43,6 +43,7 @@ export default function ContactSection() {
         setStatus("error");
       }
     } catch (err) {
+      console.error("Contact form error:", err);
       setStatus("error");
     }
   };
