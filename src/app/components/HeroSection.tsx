@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative flex items-center justify-center min-h-[60vh] px-4 bg-gradient-to-b from-blue-50 to-white text-center overflow-hidden">
+    <section className="relative flex items-center justify-center min-h-[60vh] mt-6 px-4 bg-gradient-to-b from-blue-50 to-white text-center overflow-hidden">
       <Image
         src="/hero.webp"
         alt="Finispect Hero"
@@ -28,7 +28,7 @@ export default function HeroSection() {
         </p>
         <a
           href="#contact"
-          className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full shadow transition mb-8"
+          className="bg-[#1347e5] hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full shadow transition mb-8"
           data-aos="fade-up"
           data-aos-delay="300"
         >

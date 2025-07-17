@@ -11,13 +11,13 @@ export default function AboutSection() {
           className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0"
           data-aos="fade-up"
         >
-          <UserCircleIcon className="w-32 h-32 text-blue-400" />
+          <UserCircleIcon className="w-32 h-32 text-[#1347e5]" />
         </div>
         <div
           className="w-full md:w-1/2 flex flex-col items-center md:items-start"
           data-aos="fade-up"
         >
-          <h2 className="text-2xl font-bold text-blue-800 mb-4">About</h2>
+          <h2 className="text-2xl font-bold text-blue-900 mb-4">About</h2>
           <div className="text-gray-700">
             <p>
               I&apos;m <span className="font-semibold">Danylo Boyev</span>,

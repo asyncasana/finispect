@@ -21,14 +21,14 @@ export default function WhatsIncludedSection() {
           className="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0"
           data-aos="fade-left"
         >
-          <ClipboardDocumentCheckIcon className="w-32 h-32 text-blue-400 mb-8" />
+          <ClipboardDocumentCheckIcon className="w-32 h-32 text-[#1347e5] mb-8" />
         </div>
         {/* Text/List Column */}
         <div
           className="w-full md:w-1/2 flex flex-col items-center md:items-center justify-center"
           data-aos="fade-right"
         >
-          <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center md:text-left">
+          <h2 className="text-2xl font-bold text-blue-900 mb-4 text-center md:text-left">
             What&apos;s Included
           </h2>
           <ul className="space-y-3 max-w-md w-full px-8">

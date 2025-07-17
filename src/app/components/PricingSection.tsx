@@ -5,7 +5,7 @@ export default function PricingSection() {
     <section className="bg-[#f5fafe] py-12 px-4 relative" id="pricing">
       <div className="max-w-3xl mx-auto px-4">
         <h2
-          className="text-2xl font-bold text-blue-800 mb-8 text-center relative z-10"
+          className="text-2xl font-bold text-blue-900 mb-8 text-center relative z-10"
           data-aos="fade-up"
         >
           Pricing: Premium Snagging Inspections
@@ -17,24 +17,24 @@ export default function PricingSection() {
         >
           <li className="flex justify-between px-6 py-4">
             <span>1-Bed Flat</span>
-            <span className="font-semibold text-blue-800">from £295</span>
+            <span className="font-semibold text-[#1347e5]">from £295</span>
           </li>
           <li className="flex justify-between px-6 py-4">
             <span>2-Bed Flat</span>
-            <span className="font-semibold text-blue-800">from £345</span>
+            <span className="font-semibold text-[#1347e5]">from £345</span>
           </li>
           <li className="flex justify-between px-6 py-4">
             <span>3-Bed Flat</span>
-            <span className="font-semibold text-blue-800">from £395</span>
+            <span className="font-semibold text-[#1347e5]">from £395</span>
           </li>
           <li className="flex justify-between px-6 py-4">
             <span>House (up to 4 bedrooms)</span>
-            <span className="font-semibold text-blue-800">from £475</span>
+            <span className="font-semibold text-[#1347e5]">from £475</span>
           </li>
           <li className="flex justify-between px-6 py-4">
             <span>Larger / high-spec homes</span>
-            <span className="font-semibold text-blue-800">
-              Contact for Quote
+            <span className="font-semibold text-[#1347e5]">
+              Contact us
             </span>
           </li>
         </ul>
@@ -44,7 +44,7 @@ export default function PricingSection() {
           data-aos-delay="200"
         >
           <div className="bg-blue-100 rounded-lg p-6 shadow flex flex-col gap-2">
-            <div className="font-semibold text-blue-800 mb-2 text-lg">
+            <div className="font-semibold text-blue-900 mb-2 text-lg">
               Optional Extras
             </div>
             <ul className="list-none text-gray-700 space-y-2">

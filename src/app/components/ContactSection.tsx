@@ -75,7 +75,7 @@ export default function ContactSection() {
       </div>
       <div className="absolute inset-0 bg-white/40 pointer-events-none" />
       <h2
-        className="relative z-10 text-3xl font-bold text-blue-800 mb-6 text-center"
+        className="relative z-10 text-3xl font-bold text-blue-900 mb-6 text-center"
         data-aos="fade-up"
       >
         Contact
@@ -89,7 +89,7 @@ export default function ContactSection() {
           Email us on{" "}
           <a
             href="mailto:hello@finispect.co.uk"
-            className="text-blue-700 underline"
+            className="text-[#1347e5] underline"
           >
             hello@finispect.co.uk
           </a>{" "}
