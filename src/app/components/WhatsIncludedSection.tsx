@@ -9,7 +9,13 @@ import ScrollReveal from "./ScrollReveal";
 
 interface WhatsIncludedData {
   sectionTitle?: string;
-  sectionIcon?: any;
+  sectionIcon?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
   items?: string[];
 }
 

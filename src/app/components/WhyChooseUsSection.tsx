@@ -9,7 +9,13 @@ import ScrollReveal from "./ScrollReveal";
 
 interface WhyChooseUsData {
   sectionTitle?: string;
-  sectionIcon?: any;
+  sectionIcon?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
   reasons?: string[];
 }
 

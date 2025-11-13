@@ -8,8 +8,21 @@ import ScrollReveal from "./ScrollReveal";
 
 interface HeroData {
   backgroundType?: "image" | "video";
-  backgroundImage?: any;
-  backgroundVideo?: any;
+  backgroundImage?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  backgroundVideo?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+      url?: string;
+    };
+  };
   title?: string;
   subtitle?: string;
   ctaText?: string;
@@ -28,7 +41,6 @@ export default function HeroSection() {
     heroData?.subtitle ||
     "Protect your investment with a professional, independent inspection";
   const ctaText = heroData?.ctaText || "Request a Quote";
-  const ctaUrl = heroData?.ctaUrl || "#contact";
 
   const backgroundUrl = heroData?.backgroundImage
     ? urlFor(heroData.backgroundImage).url()

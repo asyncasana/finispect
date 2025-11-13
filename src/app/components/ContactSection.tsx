@@ -17,7 +17,13 @@ interface FormLabels {
 interface ContactData {
   sectionTitle?: string;
   introText?: string;
-  backgroundImage?: any;
+  backgroundImage?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
   formLabels?: FormLabels;
 }
 

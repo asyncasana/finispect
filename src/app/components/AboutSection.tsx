@@ -7,7 +7,13 @@ import { urlFor } from "@/sanity/lib/image";
 import ScrollReveal from "./ScrollReveal";
 
 interface Card {
-  icon?: any;
+  icon?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
   title?: string;
   content?: string;
 }

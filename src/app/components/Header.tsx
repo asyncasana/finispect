@@ -12,7 +12,13 @@ interface NavLink {
 }
 
 interface NavbarData {
-  logo?: any;
+  logo?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
   links?: NavLink[];
 }
 
