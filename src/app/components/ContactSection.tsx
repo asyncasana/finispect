@@ -1,166 +1,114 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { getContactSection } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
+import ScrollReveal from "./ScrollReveal";
+
+interface FormLabels {
+  nameLabel?: string;
+  emailLabel?: string;
+  phoneLabel?: string;
+  messageLabel?: string;
+  submitButton?: string;
+}
+
+interface ContactData {
+  sectionTitle?: string;
+  introText?: string;
+  backgroundImage?: any;
+  formLabels?: FormLabels;
+}
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    propertyType: "",
-    message: "",
-  });
+  const [data, setData] = useState<ContactData | null>(null);
 
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
-  );
+  useEffect(() => {
+    getContactSection().then(setData);
+  }, []);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const sectionTitle = data?.sectionTitle || "Contact Us";
+  const introText = data?.introText || "Get in touch with us";
+  const formLabels = data?.formLabels || {};
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          propertyType: formData.propertyType,
-        }),
-      });
-
-      if (res.ok) {
-        setStatus("sent");
-        setFormData({ name: "", email: "", propertyType: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      console.error("Contact form error:", err);
-      setStatus("error");
-    }
-  };
+  const backgroundImage = data?.backgroundImage
+    ? urlFor(data.backgroundImage).url()
+    : "";
 
   return (
-    <section
-      id="contact"
-      className="relative py-12 px-4"
-      style={{
-        backgroundImage:
-          "linear-gradient(to bottom, #eff6ff 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0.8) 100%), url('/contact-bg-image.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div
-        className="absolute left-0 top-0 w-full overflow-hidden leading-none pointer-events-none"
-        style={{ height: "60px" }}
-      >
-        <svg
-          viewBox="0 0 1440 60"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-        >
-          <path fill="#eff6ff" d="M0,0 C480,60 960,0 1440,60 L1440,0 L0,0 Z" />
-        </svg>
+    <section className="py-16 px-4 bg-linear-to-b from-blue-50 to-white relative">
+      {backgroundImage && (
+        <Image
+          src={backgroundImage}
+          alt="Contact Background"
+          fill
+          className="absolute inset-0 object-cover opacity-30"
+        />
+      )}
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <ScrollReveal>
+          <h2 className="text-3xl font-bold text-blue-900 text-center mb-4">
+            {sectionTitle}
+          </h2>
+          <p className="text-gray-700 text-center mb-8 whitespace-pre-line">
+            {introText}
+          </p>
+
+          {/* Contact Form */}
+          <form className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">
+                {formLabels.nameLabel || "Your Name"}
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">
+                {formLabels.emailLabel || "Your Email"}
+              </label>
+              <input
+                type="email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">
+                {formLabels.phoneLabel || "Your Phone"}
+              </label>
+              <input
+                type="tel"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-gray-700 font-medium mb-2">
+                {formLabels.messageLabel || "Your Message"}
+              </label>
+              <textarea
+                rows={5}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              {formLabels.submitButton || "Send Message"}
+            </button>
+          </form>
+        </ScrollReveal>
       </div>
-      <div className="absolute inset-0 bg-white/40 pointer-events-none" />
-      <h2
-        className="relative z-10 text-3xl font-bold text-blue-900 mb-6 text-center"
-        data-aos="fade-up"
-      >
-        Contact
-      </h2>
-      <div
-        className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 mb-8"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <p className="text-center text-lg text-gray-700 mb-8">
-          Email us on{" "}
-          <a
-            href="mailto:hello@finispect.co.uk"
-            className="text-[#1347e5] underline"
-          >
-            hello@finispect.co.uk
-          </a>{" "}
-          {/* or WhatsApp{" "}
-          <a href="tel:07XXXXXXXXX" className="text-blue-700 underline">
-            07XXX XXXXXX
-          </a>{" "} */}
-          for a quick quote or to discuss your inspection.
-        </p>
-      </div>
-      <form
-        onSubmit={handleSubmit}
-        className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl bg-white rounded-lg shadow p-6 flex flex-col gap-4 mx-auto"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        <div>
-          <label className="block text-sm font-medium mb-1">Name</label>
-          <input
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            type="text"
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">Email</label>
-          <input
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            type="email"
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">
-            Property Type
-          </label>
-          <input
-            name="propertyType"
-            value={formData.propertyType}
-            onChange={handleChange}
-            type="text"
-            className="w-full border border-gray-300 rounded px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">Message</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            rows={4}
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded transition"
-        >
-          Send
-        </button>
-        {status === "sent" && <p className="text-green-600">Message sent!</p>}
-        {status === "error" && (
-          <p className="text-red-600">Something went wrong.</p>
-        )}
-      </form>
     </section>
   );
 }

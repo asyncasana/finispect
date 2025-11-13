@@ -2,10 +2,37 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getNavbar } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
+
+interface NavLink {
+  label: string;
+  url: string;
+}
+
+interface NavbarData {
+  logo?: any;
+  links?: NavLink[];
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [navData, setNavData] = useState<NavbarData | null>(null);
+
+  useEffect(() => {
+    getNavbar().then(setNavData);
+  }, []);
+
+  // Fallback data while loading
+  const links = navData?.links || [
+    { label: "About", url: "#about" },
+    { label: "What's Included", url: "#whats-included" },
+    { label: "Pricing", url: "#pricing" },
+    { label: "Contact", url: "#contact" },
+  ];
+
+  const logoUrl = navData?.logo ? urlFor(navData.logo).url() : "/logo.jpg";
 
   return (
     <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
@@ -13,8 +40,8 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.jpg"
-            alt="Finispect Logo"
+            src={logoUrl}
+            alt="Logo"
             width={80}
             height={80}
             className="h-16 w-auto object-contain"
@@ -24,15 +51,10 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6">
-          {[
-            { label: "About", href: "#about" },
-            { label: "What’s Included", href: "#included" },
-            { label: "Pricing", href: "#pricing" },
-            { label: "Contact", href: "#contact" },
-          ].map(({ label, href }) => (
+          {links.map(({ label, url }) => (
             <a
-              key={href}
-              href={href}
+              key={url}
+              href={url}
               className="text-gray-700 hover:text-[#1347e5] transition-colors font-medium"
             >
               {label}
@@ -79,15 +101,10 @@ export default function Header() {
         } bg-white shadow-md`}
       >
         <nav className="flex flex-col px-4 py-2 space-y-2">
-          {[
-            { label: "About", href: "#about" },
-            { label: "What’s Included", href: "#included" },
-            { label: "Pricing", href: "#pricing" },
-            { label: "Contact", href: "#contact" },
-          ].map(({ label, href }) => (
+          {links.map(({ label, url }) => (
             <a
-              key={href}
-              href={href}
+              key={url}
+              href={url}
               onClick={() => setOpen(false)}
               className="block text-gray-700 hover:text-[#1347e5] transition-colors font-medium"
             >
