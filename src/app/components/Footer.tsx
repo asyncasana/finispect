@@ -51,7 +51,7 @@ export default function Footer() {
                 return slug ? (
                   <a
                     key={page._id}
-                    href={`/${slug}`}
+                    href={`/legal/${slug}`}
                     className="text-xs text-gray-500 hover:text-blue-700 underline"
                   >
                     {page.title}
