@@ -98,7 +98,8 @@ export async function getContactSection() {
         propertyTypeLabel,
         messageLabel,
         submitButtonText
-      }
+      },
+      disclaimerText
     }`
   );
 }
@@ -110,10 +111,10 @@ export async function getFooter() {
       companyName,
       registeredName,
       servingArea,
-      madeByText,
-      madeByLink{
-        text,
-        url
+      legalPages[]-> {
+        _id,
+        title,
+        slug
       }
     }`
   );

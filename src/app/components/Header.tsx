@@ -30,30 +30,25 @@ export default function Header() {
     getNavbar().then(setNavData);
   }, []);
 
-  // Fallback data while loading
-  const links = navData?.links || [
-    { label: "About", url: "#about" },
-    { label: "What's Included", url: "#whats-included" },
-    { label: "Pricing", url: "#pricing" },
-    { label: "Contact", url: "#contact" },
-  ];
-
-  const logoUrl = navData?.logo ? urlFor(navData.logo).url() : "/logo.jpg";
+  const links = navData?.links || [];
+  const logoUrl = navData?.logo ? urlFor(navData.logo).url() : "";
 
   return (
     <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src={logoUrl}
-            alt="Logo"
-            width={80}
-            height={80}
-            className="h-16 w-auto object-contain"
-            priority
-          />
-        </Link>
+        {logoUrl && (
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logoUrl}
+              alt="Logo"
+              width={80}
+              height={80}
+              className="h-16 w-auto object-contain"
+              priority
+            />
+          </Link>
+        )}
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6">

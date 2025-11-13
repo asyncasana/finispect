@@ -4,12 +4,17 @@ import { useState, useEffect } from "react";
 import { getFooter } from "@/sanity/lib/queries";
 import ScrollReveal from "./ScrollReveal";
 
+interface LegalPage {
+  _id: string;
+  title: string;
+  slug?: { current: string } | string;
+}
+
 interface FooterData {
   companyName?: string;
   registeredName?: string;
   servingArea?: string;
-  madeByText?: string;
-  madeByLink?: string;
+  legalPages?: LegalPage[];
 }
 
 export default function Footer() {
@@ -25,8 +30,7 @@ export default function Footer() {
   const registeredName = data?.registeredName || "Finispect Ltd";
   const servingArea =
     data?.servingArea || "Proudly serving clients across the UK";
-  const madeByText = data?.madeByText || "Made by";
-  const madeByLink = data?.madeByLink || "#";
+  const legalPages = data?.legalPages || [];
 
   return (
     <footer className="bg-white shadow-md py-6 px-4">
@@ -37,17 +41,25 @@ export default function Footer() {
             reserved.
           </p>
           <p className="text-sm text-gray-600 mb-3">{servingArea}</p>
-          <p className="text-xs text-gray-500">
-            {madeByText}{" "}
-            <a
-              href={madeByLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 hover:underline"
-            >
-              PixelMyst Studio
-            </a>
-          </p>
+          {legalPages.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
+              {legalPages.map((page) => {
+                const slug =
+                  typeof page.slug === "string"
+                    ? page.slug
+                    : page.slug?.current;
+                return slug ? (
+                  <a
+                    key={page._id}
+                    href={`/${slug}`}
+                    className="text-xs text-gray-500 hover:text-blue-700 underline"
+                  >
+                    {page.title}
+                  </a>
+                ) : null;
+              })}
+            </div>
+          )}
         </div>
       </ScrollReveal>
     </footer>

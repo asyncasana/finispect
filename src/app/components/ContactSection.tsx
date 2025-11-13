@@ -25,6 +25,7 @@ interface ContactData {
     };
   };
   formLabels?: FormLabels;
+  disclaimerText?: string;
 }
 
 export default function ContactSection() {
@@ -37,6 +38,7 @@ export default function ContactSection() {
   const sectionTitle = data?.sectionTitle || "Contact Us";
   const introText = data?.introText || "Get in touch with us";
   const formLabels = data?.formLabels || {};
+  const disclaimerText = data?.disclaimerText || "";
 
   const backgroundImage = data?.backgroundImage
     ? urlFor(data.backgroundImage).url()
@@ -112,6 +114,12 @@ export default function ContactSection() {
             >
               {formLabels.submitButton || "Send Message"}
             </button>
+
+            {disclaimerText && (
+              <p className="text-xs text-gray-500 text-center mt-3">
+                {disclaimerText}
+              </p>
+            )}
           </form>
         </ScrollReveal>
       </div>

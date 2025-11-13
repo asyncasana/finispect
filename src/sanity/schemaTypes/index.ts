@@ -7,6 +7,7 @@ import whyChooseUsSection from "../../../studio/schemas/whyChooseUsSection";
 import pricingSection from "../../../studio/schemas/pricingSection";
 import contactSection from "../../../studio/schemas/contactSection";
 import footer from "../../../studio/schemas/footer";
+import legalPage from "../../../studio/schemas/legalPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,5 +19,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pricingSection,
     contactSection,
     footer,
+    legalPage,
   ],
 };

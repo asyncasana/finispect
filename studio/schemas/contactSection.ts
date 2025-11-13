@@ -63,6 +63,14 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: "disclaimerText",
+      title: "Disclaimer Text (optional)",
+      type: "text",
+      rows: 2,
+      description:
+        "Optional disclaimer text displayed below the submit button (e.g., 'By submitting this form you agree to our Terms & Privacy Policy')",
+    }),
   ],
   preview: {
     select: {
